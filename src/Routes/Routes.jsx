@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { Home } from "../Components/Home/Home";
 import { Section } from "../Components/Section/Section";
 import { BookDetailsPage } from "../Components/BookDetailsPage/BookDetailsPage";
@@ -10,15 +10,14 @@ export const AllRoutes = () => {
     <>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/section" element={<Section/>} />
-        <Route exact path="/bookdetailspage" element={<BookDetailsPage/>} />
-        <Route exact path="/notfound" element={<NotFound/>} />
-        {/* <Route exact path="/section" element={<Section />} />
-        <Route exact path="/bookdetailspage" element={<BookDetailsPage />} /> */}
-        {/* Create other routes here: Section, bookdetailspage and 404 */}
-
-        {/*  */}
+        <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/bookdetailspage/:id"
+          element={<BookDetailsPage />}
+        />
+        <Route exact path="/section/:name" element={<Section />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
